@@ -14,11 +14,26 @@ class SearchScreen extends StatelessWidget {
             TextField(
               decoration: InputDecoration(
                 labelText: 'Search...',
-                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0), // Rounded corners
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                  borderSide: BorderSide(
+                    color: Colors.grey, // Color of the border
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                  borderSide: BorderSide(
+                    color: Theme.of(context).primaryColor, // Color of the border when focused
+                  ),
+                ),
               ),
             ),
             SizedBox(height: 20),
-            // You can add more widgets here for displaying search results
+            // Add more widgets here for displaying search results
           ],
         ),
       ),

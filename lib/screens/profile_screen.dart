@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class EditProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +14,7 @@ class EditProfileScreen extends StatelessWidget {
           },
         ),
         title: Text(
-          'Edit account',
+          'Profile',
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
@@ -27,92 +27,48 @@ class EditProfileScreen extends StatelessWidget {
             SizedBox(height: 20),
             // Profile Picture
             Center(
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  CircleAvatar(
-                    radius: 50,
-                    backgroundImage: NetworkImage(
-                        'https://via.placeholder.com/150'), // Replace with actual image URL or asset path
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    child: TextButton(
-                      onPressed: () {
-                        // Code to edit photo
-                      },
-                      child: Text(
-                        'Edit photo',
-                        style: TextStyle(color: Colors.blueAccent),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 30),
-            // Full Name TextField
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Full name',
-                hintText: 'Jane Kolinz',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-                filled: true,
-                fillColor: Colors.grey[200],
+              child: CircleAvatar(
+                radius: 50,
+                backgroundImage: NetworkImage(
+                    'https://via.placeholder.com/150'), // Replace with actual image URL or asset path
               ),
             ),
             SizedBox(height: 20),
-            // Email TextField
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Email',
-                hintText: 'janekolinz@gmail.com',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-                filled: true,
-                fillColor: Colors.grey[200],
+            // Full Name
+            ListTile(
+              title: Text(
+                'Full name',
+                style: TextStyle(color: Colors.grey),
+              ),
+              subtitle: Text(
+                'Jane Kolinz',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
               ),
             ),
-            SizedBox(height: 20),
-            // Change Password
-            Align(
-              alignment: Alignment.centerLeft,
-              child: TextButton(
-                onPressed: () {
-                  // Code to change password
-                },
-                child: Text(
-                  'Change password',
-                  style: TextStyle(color: Colors.blueAccent),
-                ),
+            Divider(),
+            // Email
+            ListTile(
+              title: Text(
+                'Email',
+                style: TextStyle(color: Colors.grey),
+              ),
+              subtitle: Text(
+                'janekolinz@gmail.com',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
               ),
             ),
-            Spacer(),
-            // Save Button
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  // Code to save changes
-                },
-                style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple,
-                foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                  padding: EdgeInsets.symmetric(vertical: 15),
-                ),
-                child: Text(
-                  'Save',
-                  style: TextStyle(fontSize: 18),
-                ),
+            Divider(),
+            // Additional info like Phone Number, etc.
+            ListTile(
+              title: Text(
+                'Phone Number',
+                style: TextStyle(color: Colors.grey),
+              ),
+              subtitle: Text(
+                '+1 234 567 890',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
               ),
             ),
-            SizedBox(height: 20),
           ],
         ),
       ),

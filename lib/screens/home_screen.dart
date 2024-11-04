@@ -1,6 +1,7 @@
 // lib/screens/home_screen.dart
 import 'package:flutter/material.dart';
 import 'search_screen.dart';
+import 'profile_screen.dart'; // Import ProfileScreen
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -15,8 +16,8 @@ class _HomeScreenState extends State<HomeScreen> {
     HomeContentScreen(), // Main home content
     SearchScreen(),      // Search screen
     Center(child: Text("Favorites")), // Placeholder for Favorites screen
-    Center(child: Text("Wallet")),    // Placeholder for Wallet screen
-    Center(child: Text("Profile")),   // Placeholder for Profile screen
+    Center(child: Text("Cart")),       // Placeholder for Cart screen
+    ProfileScreen(),     // Link ProfileScreen here
   ];
 
   @override
@@ -34,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
           BottomNavigationBarItem(icon: Icon(Icons.favorite_border), label: 'Favorites'),
-          BottomNavigationBarItem(icon: Icon(Icons.account_balance_wallet), label: 'Wallet'),
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: 'Cart'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
         selectedItemColor: Colors.blue,
@@ -56,9 +57,12 @@ class HomeContentScreen extends StatelessWidget {
           children: [
             Icon(Icons.location_on, color: Colors.blue),
             SizedBox(width: 5),
-            Text(
-              'Delivery: 9514, Pualena St 71, Kaneohe, HI',
-              style: TextStyle(color: Colors.black, fontSize: 12),
+            Expanded(
+              child: Text(
+                'Delivery: 9514, Pualena St 71, Kaneohe, HI',
+                style: TextStyle(color: Colors.black, fontSize: 12),
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
           ],
         ),
