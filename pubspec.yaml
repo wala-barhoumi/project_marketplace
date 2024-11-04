@@ -61,5 +61,6 @@ flutter:
   assets:
     - lib/assets/tonic.jpg
     - lib/assets/moisturiser.jpg
+    - lib/assets/profile_picture.jpg
     - lib/assets/login_image.png
     - lib/assets/rose_hibiscus_mist.png

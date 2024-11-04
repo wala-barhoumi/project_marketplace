@@ -7,12 +7,7 @@ class ProfileScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+        automaticallyImplyLeading: false, // Ensures no back arrow is displayed
         title: Text(
           'Profile',
           style: TextStyle(color: Colors.black),
@@ -20,54 +15,66 @@ class ProfileScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 20),
-            // Profile Picture
+            // Profile Picture Section
             Center(
               child: CircleAvatar(
                 radius: 50,
-                backgroundImage: NetworkImage(
-                    'https://via.placeholder.com/150'), // Replace with actual image URL or asset path
+                backgroundImage: AssetImage('lib/assets/profile_picture.jpg'), // Replace with actual image
+              ),
+            ),
+            SizedBox(height: 16),
+            // Profile Name and Email
+            Center(
+              child: Column(
+                children: [
+                  Text(
+                    'ons hajri', // Replace with dynamic name if needed
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'ons@gmail.com', // Replace with dynamic email if needed
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ],
               ),
             ),
             SizedBox(height: 20),
-            // Full Name
-            ListTile(
-              title: Text(
-                'Full name',
-                style: TextStyle(color: Colors.grey),
-              ),
-              subtitle: Text(
-                'Jane Kolinz',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-              ),
+            // Account Settings Section
+            Text(
+              'Account Settings',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            Divider(),
-            // Email
             ListTile(
-              title: Text(
-                'Email',
-                style: TextStyle(color: Colors.grey),
-              ),
-              subtitle: Text(
-                'janekolinz@gmail.com',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-              ),
+              leading: Icon(Icons.edit),
+              title: Text('Edit Profile'),
+              onTap: () {
+                // Handle edit profile action
+              },
             ),
-            Divider(),
-            // Additional info like Phone Number, etc.
             ListTile(
-              title: Text(
-                'Phone Number',
-                style: TextStyle(color: Colors.grey),
-              ),
-              subtitle: Text(
-                '+1 234 567 890',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-              ),
+              leading: Icon(Icons.lock),
+              title: Text('Change Password'),
+              onTap: () {
+                // Handle change password action
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.notifications),
+              title: Text('Notifications'),
+              onTap: () {
+                // Handle notifications settings action
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text('Log Out'),
+              onTap: () {
+                // Handle log out action
+              },
             ),
           ],
         ),

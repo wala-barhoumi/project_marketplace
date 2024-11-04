@@ -53,6 +53,7 @@ class HomeContentScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
+        automaticallyImplyLeading: false, // Remove the back arrow
         title: Row(
           children: [
             Icon(Icons.location_on, color: Colors.blue),

@@ -6,6 +6,7 @@ class SearchScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Search'),
+        automaticallyImplyLeading: false,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -26,6 +27,7 @@ class SearchScreen extends StatelessWidget {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30.0),
+                   
                   borderSide: BorderSide(
                     color: Theme.of(context).primaryColor, // Color of the border when focused
                   ),
