@@ -1,6 +1,4 @@
-// lib/screens/home_screen.dart
 import 'package:flutter/material.dart';
-import 'search_screen.dart';
 import 'profile_screen.dart'; // Import ProfileScreen
 
 class HomeScreen extends StatefulWidget {
@@ -14,7 +12,6 @@ class _HomeScreenState extends State<HomeScreen> {
   // List of screens to show based on the selected index
   final List<Widget> _screens = [
     HomeContentScreen(), // Main home content
-    SearchScreen(),      // Search screen
     Center(child: Text("Favorites")), // Placeholder for Favorites screen
     Center(child: Text("Cart")),       // Placeholder for Cart screen
     ProfileScreen(),     // Link ProfileScreen here
@@ -33,7 +30,6 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
           BottomNavigationBarItem(icon: Icon(Icons.favorite_border), label: 'Favorites'),
           BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: 'Cart'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
@@ -79,6 +75,29 @@ class HomeContentScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Add the search bar here
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Search...',
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0), // Rounded corners
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                  borderSide: BorderSide(
+                    color: Colors.grey, // Color of the border
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                  borderSide: BorderSide(
+                    color: Theme.of(context).primaryColor, // Color when focused
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 20), // Add spacing after the search bar
             _buildHighlightProduct(),
             SizedBox(height: 20),
             _buildPopularCategories(),
